@@ -11,9 +11,10 @@ import (
 )
 
 type Ball struct {
-	Issue int
-	Red   []string
-	Green []string
+	Issue    int
+	Red      []string
+	Green    []string
+	Datetime string
 }
 
 func main() {
@@ -43,6 +44,8 @@ func main() {
 	if year != maxYear {
 		maxIssue = maxYear * 1000
 	}
+	datetime := time.Now().Format("2006-01-02 15:04:05")
+	fmt.Println("datetime:", datetime)
 	fmt.Println("maxIssue: ", result.Issue)
 
 	issue := maxIssue + 1
@@ -77,7 +80,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	err = c.Insert(&Ball{issue, redball, blueball})
+	err = c.Insert(&Ball{issue, redball, blueball, datetime})
 	if err != nil {
 		panic(err)
 	}

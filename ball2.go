@@ -43,7 +43,7 @@ func main() {
 	maxYear := maxIssue / 1000
 	fmt.Println("currentYear:", year)
 	fmt.Println("maxYear:", maxYear)
-	if year != maxYear {
+	if year > maxYear {
 		maxIssue = (maxYear + 1) * 1000
 	}
 	datetime := time.Now().Format("2006-01-02 15:04:05")
